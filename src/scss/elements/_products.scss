@@ -1,0 +1,65 @@
+@use '../settings/variables' as vars;
+@use '../tools/mixins';
+
+.product_table {
+   width: 90%;
+   margin: 0 auto;
+   overflow: hidden;
+   max-width: 1200px;
+   padding: 20px 0;
+   position: relative;
+
+   &__button {
+      display: flex;
+      justify-content: end;
+      padding: 0 0 10px;
+   }
+
+   &__cell_actions {
+      display: flex;
+      gap: 5px;
+   }
+}
+
+.product_form {
+   width: 90%;
+   margin: 0 auto;
+   overflow: hidden;
+   max-width: 700px;
+   padding: 20px 0;
+   position: relative;
+
+   mat-card {
+      padding: 10px;
+
+      mat-card-header {
+         justify-content: center;
+      }
+
+      mat-card-content {
+         display: flex;
+         flex-direction: column;
+      }
+
+      mat-card-actions {
+         justify-content: center;
+         gap: 10px;
+      }
+   }
+
+   .row {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+
+      mat-form-field {
+         width: 100%;
+      }
+
+      @include mixins.media-query-md() {
+         display: flex;
+         flex-direction: row;
+         gap: 15px;
+      }
+   }
+}

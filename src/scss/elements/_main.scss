@@ -1,0 +1,22 @@
+@use '../settings/variables' as vars;
+@use '../tools/mixins';
+
+.main {
+   height: 100vh;
+
+   mat-sidenav-content {
+      background-color: vars.$sidenav-content-color;
+   }
+
+   mat-sidenav {
+      min-width: 150px;
+   }
+
+   mat-toolbar {
+      position: sticky;
+      position: -webkit-sticky;
+      top: 0;
+      z-index: 1000;
+      justify-content: space-between;
+   }
+}

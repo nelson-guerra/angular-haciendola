@@ -1,0 +1,15 @@
+<app-header (sidenavEmit)="sidenav.toggle()" (logoutEmit)="logout()"></app-header>
+<mat-sidenav-container>
+   <mat-sidenav
+      #sidenav
+      [mode]="isBiggerScreen ? 'side' : 'over'"
+      [(opened)]="opened"
+      [fixedInViewport]="true"
+      [fixedTopGap]
+   >
+      <app-sidenav (sidenavClose)="isBiggerScreen ? '' : sidenav.close()"></app-sidenav>
+   </mat-sidenav>
+   <mat-sidenav-content>
+      <router-outlet></router-outlet>
+   </mat-sidenav-content>
+</mat-sidenav-container>

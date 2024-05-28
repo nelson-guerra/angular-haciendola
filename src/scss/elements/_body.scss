@@ -1,0 +1,6 @@
+@use '../settings/variables' as vars;
+@use '../tools/mixins';
+
+body {
+   background-color: vars.$body-color;
+}

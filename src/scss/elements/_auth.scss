@@ -1,0 +1,33 @@
+@use '../settings/variables' as vars;
+@use '../tools/mixins';
+
+.container_auth {
+   width: 90%;
+   margin: 0 auto;
+   overflow: hidden;
+   max-width: 600px;
+   padding: 60px 0;
+   position: relative;
+
+   mat-card {
+      padding: 10px;
+      width: 100%;
+
+      mat-card-header {
+         padding-top: 20px;
+         padding-bottom: 20px;
+         padding: 30px auto;
+         justify-content: center;
+      }
+
+      mat-card-content {
+         display: flex;
+         flex-direction: column;
+      }
+
+      mat-card-actions {
+         justify-content: center;
+         gap: 10px;
+      }
+   }
+}

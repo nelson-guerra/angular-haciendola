@@ -1,0 +1,82 @@
+<div class="product_table" tabindex="0">
+   <div class="product_table__button">
+      <button mat-fab extended color="primary" aria-label="Add Product" routerLink="/products/add">
+         <mat-icon>add</mat-icon> Product
+      </button>
+   </div>
+
+   <table mat-table [dataSource]="dataSource">
+      <!-- id Column -->
+      <ng-container matColumnDef="id" sticky>
+         <th mat-header-cell *matHeaderCellDef>ID.</th>
+         <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <!-- title Column -->
+      <ng-container matColumnDef="title">
+         <th mat-header-cell *matHeaderCellDef>Title</th>
+         <td mat-cell *matCellDef="let element" class="ellipses">{{ element.title }}</td>
+      </ng-container>
+
+      <!-- handle Column -->
+      <ng-container matColumnDef="handle">
+         <th mat-header-cell *matHeaderCellDef>Handle</th>
+         <td mat-cell *matCellDef="let element">{{ element.handle }}</td>
+      </ng-container>
+
+      <!-- sku Column -->
+      <ng-container matColumnDef="sku">
+         <th mat-header-cell *matHeaderCellDef>SKU</th>
+         <td mat-cell *matCellDef="let element">{{ element.sku }}</td>
+      </ng-container>
+
+      <!-- grams Column -->
+      <ng-container matColumnDef="grams">
+         <th mat-header-cell *matHeaderCellDef>Grams</th>
+         <td mat-cell *matCellDef="let element">{{ element.grams }}</td>
+      </ng-container>
+
+      <!-- stock Column -->
+      <ng-container matColumnDef="stock">
+         <th mat-header-cell *matHeaderCellDef>Stock</th>
+         <td mat-cell *matCellDef="let element">{{ element.stock }}</td>
+      </ng-container>
+
+      <!-- price Column -->
+      <ng-container matColumnDef="price">
+         <th mat-header-cell *matHeaderCellDef>Price</th>
+         <td mat-cell *matCellDef="let element">{{ element.price }}</td>
+      </ng-container>
+
+      <!-- barcode Column -->
+      <ng-container matColumnDef="barcode">
+         <th mat-header-cell *matHeaderCellDef>Barcode</th>
+         <td mat-cell *matCellDef="let element">{{ element.barcode }}</td>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions" stickyEnd>
+         <th mat-header-cell *matHeaderCellDef>Actions</th>
+         <td mat-cell *matCellDef="let element">
+            <div class="product_table__cell_actions">
+               <button mat-mini-fab color="primary" aria-label="Edit" (click)="editProduct(element.id)">
+                  <mat-icon>edit</mat-icon>
+               </button>
+               <button
+                  mat-mini-fab
+                  color="warn"
+                  aria-label="Delete"
+                  (click)="deleteProduct(element.id, element.title, element.sku)"
+               >
+                  <mat-icon>delete</mat-icon>
+               </button>
+            </div>
+         </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+   </table>
+
+   <mat-paginator [pageSizeOptions]="[8, 16, 32]" showFirstLastButtons></mat-paginator>
+</div>

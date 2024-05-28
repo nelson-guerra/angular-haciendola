@@ -1,0 +1,89 @@
+<div class="product_form">
+   <mat-card>
+      <mat-card-header>
+         <mat-card-title>{{ isEdit ? 'Edit' : 'Add' }} Product</mat-card-title>
+      </mat-card-header>
+      <form [formGroup]="productForm" (ngSubmit)="sendFormData()" novalidate>
+         <mat-card-content>
+            <mat-form-field>
+               <input matInput type="text" placeholder="Handle" formControlName="handle" />
+               @if (handleField.hasError('required') && handleField.touched) {
+               <mat-error>Handle is <strong>required</strong></mat-error>
+               }
+            </mat-form-field>
+            <mat-form-field>
+               <input matInput type="text" placeholder="Title" formControlName="title" />
+               @if (titleField.hasError('required') && titleField.touched) {
+               <mat-error>Title is <strong>required</strong></mat-error>
+               }
+            </mat-form-field>
+            <mat-form-field>
+               <input matInput type="text" placeholder="Description" formControlName="description" />
+               @if (descriptionField.hasError('required') && descriptionField.touched) {
+               <mat-error>Description is <strong>required</strong></mat-error>
+               }
+            </mat-form-field>
+            <div class="row">
+               <mat-form-field>
+                  <input matInput type="text" placeholder="Sku" formControlName="sku" />
+                  @if (skuField.hasError('required') && skuField.touched) {
+                  <mat-error>Sku is <strong>required</strong></mat-error>
+                  } @if(skuField.hasError('integerInvalid') && !skuField.hasError('required')){
+                  <mat-error>Enter only integers</mat-error>
+                  }
+               </mat-form-field>
+               <mat-form-field>
+                  <input matInput type="text" placeholder="Grams" formControlName="grams" />
+                  @if (gramsField.hasError('required') && gramsField.touched) {
+                  <mat-error>Grams is <strong>required</strong></mat-error>
+                  }@if(gramsField.hasError('decimalInvalid') && !gramsField.hasError('required')){
+                  <mat-error>Enter only integers or decimals</mat-error>
+                  }
+               </mat-form-field>
+            </div>
+            <div class="row">
+               <mat-form-field>
+                  <input matInput type="text" placeholder="Stock" formControlName="stock" />
+                  @if (stockField.hasError('required') && stockField.touched) {
+                  <mat-error>Stock is <strong>required</strong></mat-error>
+                  } @if(stockField.hasError('integerInvalid') && !stockField.hasError('required')){
+                  <mat-error>Enter only integers</mat-error>
+                  }
+               </mat-form-field>
+               <mat-form-field>
+                  <input matInput type="text" placeholder="Price" formControlName="price" />
+                  @if (priceField.hasError('required') && priceField.touched) {
+                  <mat-error>Price is <strong>required</strong></mat-error>
+                  } @if(priceField.hasError('decimalInvalid') && !priceField.hasError('required')){
+                  <mat-error>Enter only integers or decimals</mat-error>
+                  }
+               </mat-form-field>
+            </div>
+            <div class="row">
+               <mat-form-field>
+                  <input matInput type="text" placeholder="Compare Price" formControlName="compare_price" />
+                  @if (comparePriceField.hasError('required') && comparePriceField.touched) {
+                  <mat-error>Compare Price is <strong>required</strong></mat-error>
+                  } @if(comparePriceField.hasError('decimalInvalid') && !comparePriceField.hasError('required')){
+                  <mat-error>Enter only integers or decimals</mat-error>
+                  }
+               </mat-form-field>
+               <mat-form-field>
+                  <input matInput type="text" placeholder="Barcode" formControlName="barcode" />
+                  @if (barcodeField.hasError('required') && barcodeField.touched) {
+                  <mat-error>Barcode is <strong>required</strong></mat-error>
+                  } @if(barcodeField.hasError('integerInvalid') && !barcodeField.hasError('required')){
+                  <mat-error>Enter only integers</mat-error>
+                  }
+               </mat-form-field>
+            </div>
+         </mat-card-content>
+         <mat-card-actions>
+            <button mat-flat-button color="primary" type="submit" [disabled]="productForm.status === 'INVALID'">
+               Save
+            </button>
+            <button mat-raised-button color="secondary" type="button" (click)="cancel()">Cancel</button>
+         </mat-card-actions>
+      </form>
+   </mat-card>
+</div>
