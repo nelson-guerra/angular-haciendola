@@ -1,22 +1,22 @@
 @use '../settings/variables' as vars;
 @use '../tools/mixins';
 
-.container_auth {
+.auth_content {
    width: 90%;
    margin: 0 auto;
    overflow: hidden;
    max-width: 600px;
-   padding: 60px 0;
-   position: relative;
+   padding: 3rem 0;
+
+   @include mixins.media-query-md() {
+      padding: 6rem 0;
+   }
 
    mat-card {
-      padding: 10px;
-      width: 100%;
+      padding: 1.5rem 1rem;
 
       mat-card-header {
-         padding-top: 20px;
-         padding-bottom: 20px;
-         padding: 30px auto;
+         padding: 1rem 0;
          justify-content: center;
       }
 
@@ -27,7 +27,7 @@
 
       mat-card-actions {
          justify-content: center;
-         gap: 10px;
+         gap: 0.7rem;
       }
    }
 }

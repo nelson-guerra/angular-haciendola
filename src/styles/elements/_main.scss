@@ -1,15 +1,17 @@
 @use '../settings/variables' as vars;
 @use '../tools/mixins';
 
-.main {
-   height: 100vh;
+.main_content {
+   mat-sidenav-container {
+      background-color: vars.$sidenav-container-color;
+   }
 
    mat-sidenav-content {
-      background-color: vars.$sidenav-content-color;
+      padding: 1.5rem 0;
    }
 
    mat-sidenav {
-      min-width: 150px;
+      min-width: 9rem;
    }
 
    mat-toolbar {

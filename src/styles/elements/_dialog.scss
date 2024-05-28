@@ -1,0 +1,17 @@
+@use '../settings/variables' as vars;
+@use '../tools/mixins';
+
+.dialog_content {
+   div {
+      padding: 0.2rem 0;
+   }
+
+   h4 {
+      margin-bottom: 1rem;
+   }
+
+   mat-divider {
+      margin: 0 auto;
+      width: 90%;
+   }
+}
